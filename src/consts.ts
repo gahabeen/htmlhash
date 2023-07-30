@@ -1,0 +1,1 @@
+export const COMPRESS_CHAR_AS_MULTIPLIERS = 'ghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
