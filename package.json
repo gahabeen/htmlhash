@@ -1,5 +1,5 @@
 {
-	"name": "html-fingerprint",
+	"name": "htmlhash",
 	"main": "dist/index.js",
 	"module": "dist/index.m.js",
 	"unpkg": "dist/index.umd.js",
