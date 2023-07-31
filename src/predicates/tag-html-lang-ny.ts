@@ -1,4 +1,4 @@
-import { tagAttributesLoosePattern, tagKeyPattern } from '../patterns';
+import { tagAttributesLoosePattern, tagPattern } from '../patterns';
 import { matchAny } from '../fp';
 
 export const predicate = matchAny([

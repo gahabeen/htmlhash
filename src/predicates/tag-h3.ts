@@ -1,6 +1,6 @@
-import { tagKeyPattern } from '../patterns';
+import { tagPattern } from '../patterns';
 import { matchAny } from '../fp';
 
 export const predicate = matchAny([
-  tagKeyPattern('h3')
+  tagPattern('h3')
 ])

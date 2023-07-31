@@ -1,5 +1,5 @@
-import { linkAttributesLoosePattern, tagKeyPattern } from '../patterns';
 import { matchAny } from '../fp';
+import { linkAttributesLoosePattern } from '../patterns';
 
 export const predicate = matchAny([
   linkAttributesLoosePattern({

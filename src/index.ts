@@ -1,1 +1,1 @@
-export { hash } from './fingerprint';
+export { hash, toBinary, toHex } from './fingerprint';

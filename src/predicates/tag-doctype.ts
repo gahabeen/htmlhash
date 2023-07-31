@@ -1,6 +1,6 @@
-import { linkKeyValuePattern, tagKeyPattern, tagKeyValuePattern } from '../patterns';
+import { linkKeyValuePattern, tagPattern, tagKeyValuePattern } from '../patterns';
 import { matchAny } from '../fp';
 
 export const predicate = matchAny([
-  tagKeyPattern('!doctype')
+  tagPattern('!doctype')
 ])
