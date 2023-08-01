@@ -1,4 +1,4 @@
-import { anyOf, matchRegex, matchRegexInAttribute, matchRegexInInnerHTML, matchSelector } from '../matchers'
+import { anyOf, matchRegexInInnerHTML } from '../matchers'
 
 export const predicate = anyOf([
     // in attribute

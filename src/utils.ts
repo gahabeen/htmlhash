@@ -82,27 +82,27 @@ export const decompressHex = (hex: string): string => {
 }
 
 export function dotProduct(a: number[], b: number[]): number {
-    return a.reduce((sum, value, index) => sum + value * b[index], 0);
+    return a.reduce((sum, value, index) => sum + value * b[index], 0)
 }
 
 export function vectorMagnitude(a: number[]): number {
-    return Math.sqrt(a.reduce((sum, value) => sum + value * value, 0));
+    return Math.sqrt(a.reduce((sum, value) => sum + value * value, 0))
 }
 
 export function cosineSimilarity(a: number[], b: number[]): number {
-    const dotProd = dotProduct(a, b);
-    const magnitudeA = vectorMagnitude(a);
-    const magnitudeB = vectorMagnitude(b);
+    const dotProd = dotProduct(a, b)
+    const magnitudeA = vectorMagnitude(a)
+    const magnitudeB = vectorMagnitude(b)
     return dotProd / (magnitudeA * magnitudeB)
 }
 
 export const hammingDistanceScore = (vectorA = [] as number[], vectorB = [] as number[]) => {
-    const dimensionality = Math.min(vectorA.length, vectorB.length);
-    let score = 0;
+    const dimensionality = Math.min(vectorA.length, vectorB.length)
+    let score = 0
 
     for (let i = 0; i < dimensionality; i++) {
-        if (vectorA[i] === vectorB[i]) score++;
+        if (vectorA[i] === vectorB[i]) score++
     }
 
-    return score / dimensionality;
+    return score / dimensionality
 }

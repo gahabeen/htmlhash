@@ -1,3 +1,3 @@
 import { anyOf, matchSelector } from '../matchers'
 
-export const predicate = anyOf([matchSelector('[itemprop="citation"]')])
+export const predicate = matchSelector('[itemprop="citation"]')

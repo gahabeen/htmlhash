@@ -1,4 +1,4 @@
 import { anyOf } from '../matchers'
 import { matchSelector } from '../matchers'
 
-export const predicate = anyOf([matchSelector('[class]')])
+export const predicate = matchSelector('[class]')

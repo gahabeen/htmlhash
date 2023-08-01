@@ -8,12 +8,12 @@ const htmls = [
     // fs.readFileSync(path.join(__dirname, './dataset/ww9-soap2day-day.html'), 'utf8'),
     // fs.readFileSync(path.join(__dirname, './dataset/mv-thesoap2day-com.html'), 'utf8'),
     // fs.readFileSync(path.join(__dirname, "./dataset/google-com.html"), "utf8"),
-    fs.readFileSync(path.join(__dirname, './dataset/dokicloud-one.html'), 'utf8'),
+    // fs.readFileSync(path.join(__dirname, './dataset/dokicloud-one.html'), 'utf8'),
     // fs.readFileSync(path.join(__dirname, './dataset/rabbitstream-com.html'), 'utf8'),
     // fs.readFileSync(path.join(__dirname, './dataset/twitter-com.html'), 'utf8'),
     // fs.readFileSync(path.join(__dirname, './dataset/hackernews-com.html'), 'utf8'),
     // fs.readFileSync(path.join(__dirname, './dataset/ww9-soap2day-day--the-matrix-soap2day.html'), 'utf8'),
-    // fs.readFileSync(path.join(__dirname, './dataset/mv-thesoap2day-com--movies--the-matrix.html'), 'utf8'),
+    fs.readFileSync(path.join(__dirname, './dataset/mv-thesoap2day-com--movies--the-matrix.html'), 'utf8'),
     fs.readFileSync(path.join(__dirname, './dataset/myflixerz.to--movie--the-matrix-19724.html'), 'utf8'),
 ]
 
@@ -32,13 +32,13 @@ const run = async () => {
 
     // const bin = toBinary(value);
 
-    console.log(value1, value1.length)
-    console.log(value2, value2.length)
+    // console.log(value1, value1.length)
+    // console.log(value2, value2.length)
 
     const score = similarity(value1, value2)
     const diff = differences(value1, value2)
 
-    console.log(score)
+    console.log(score, diff.length)
     console.log(diff)
 }
 

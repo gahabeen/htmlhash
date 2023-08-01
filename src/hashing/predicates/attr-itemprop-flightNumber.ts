@@ -1,4 +1,4 @@
 import { anyOf } from '../matchers'
 import { matchSelector } from '../matchers'
 
-export const predicate = anyOf([matchSelector('[itemprop="flightNumber"]')])
+export const predicate = matchSelector('[itemprop="flightNumber"]')

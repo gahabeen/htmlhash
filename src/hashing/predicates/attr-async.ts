@@ -1,4 +1,4 @@
 import { anyOf } from '../matchers'
 import { matchSelector } from '../matchers'
 
-export const predicate = matchSelector('[type]')
+export const predicate = matchSelector('[async]')

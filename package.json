@@ -1,10 +1,12 @@
 {
     "name": "htmlhash",
+    "version": "0.0.1-alpha.1",
     "main": "lib/index.js",
     "scripts": {
+        "example": "bun playground/example.ts",
         "sync": "bun scripts/cli-sync.ts",
         "build": "bun build ./src/index.ts --outdir ./lib --target node",
-        "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
+        "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\" --config ./.prettierrc.json"
     },
     "keywords": [],
     "author": "",

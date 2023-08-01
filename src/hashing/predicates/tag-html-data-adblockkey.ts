@@ -1,3 +1,3 @@
 import { anyOf, matchSelector } from '../matchers'
 
-export const predicate = anyOf([matchSelector('html[data-adblockkey]')])
+export const predicate = matchSelector('html[data-adblockkey]')

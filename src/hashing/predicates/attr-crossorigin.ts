@@ -1,4 +1,4 @@
 import { anyOf } from '../matchers'
 import { matchSelector } from '../matchers'
 
-export const predicate = anyOf([matchSelector('[crossorigin]')])
+export const predicate = matchSelector('[crossorigin]')

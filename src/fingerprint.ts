@@ -10,9 +10,9 @@ export const runPredicateAsBinary = (html: string, predicates: Predicate[]) => {
     return predicates.map((predicate, index) => {
         // console.time('predicate')
         // console.log(`Running predicate ${names[index]}`)
-        const exist = predicate({ html, dom });
+        const exist = predicate({ html, dom })
         // console.timeEnd('predicate')
-        return exist ? 1 : 0;
+        return exist ? 1 : 0
     })
 }
 
@@ -41,7 +41,7 @@ export const isBinary = (hash: string) => {
 }
 
 export const toBinary = (hash: string) => {
-    if(isBinary(hash)) return hash
+    if (isBinary(hash)) return hash
     const hex = isCompressedHex(hash) ? decompressHex(hash) : hash
     const bin = hexToBinary(hex)
     return bin

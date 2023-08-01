@@ -1,4 +1,3 @@
-import { anyOf } from '../matchers'
 import { matchSelector } from '../matchers'
 
-export const predicate = anyOf([matchSelector('[itemprop="addressCountry"]')])
+export const predicate = matchSelector('[itemprop="addressCountry"]')

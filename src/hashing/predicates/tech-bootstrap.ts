@@ -2,7 +2,7 @@ import { anyOf, matchRegex, matchRegexInAttribute, matchRegexInInnerHTML, matchS
 
 export const predicate = anyOf([
     // in attribute
-    matchRegexInAttribute('script', 'src', 'bootstrap(\.js|\.min\.js)'),
+    matchRegexInAttribute('script', 'src', 'bootstrap(.js|.min.js)'),
     // in dom
 
     // in js

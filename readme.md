@@ -16,9 +16,10 @@ Make sure you have the following dependencies installed:
 
 ## Installation
 
-1. Clone the repository to your local machine.
-2. Open a terminal and navigate to the project directory.
+1. Clone the repository. `git clone https://github.com/gahabeen/htmlhash.git`
+2. `cd htmlhash`
 3. Run the command `bun` to install the required dependencies.
+4. Run the command `bun example` to run the example.
 
 ## Usage
 
@@ -34,7 +35,7 @@ const hash2 = hh.hash(html2)
 console.log(hash2) // Z0O01Z0U08Z0Z0Z0h02Z0Z0j04Z0W02v08Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z00
 
 const score = hh.similarity(hh.toBinary(hash1), hh.toBinary(hash2))
-console.log(score) // 0.9998385012919897
+console.log(score) // 0.9995708154506437
 
 console.log('dif', hh.differences(hash1, hash2)) // [ "tag-h2", "tag-h1" ]
 ```

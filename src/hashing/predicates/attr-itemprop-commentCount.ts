@@ -1,4 +1,4 @@
 import { anyOf } from '../matchers'
 import { matchSelector } from '../matchers'
 
-export const predicate = anyOf([matchSelector('[itemprop="commentCount"]')])
+export const predicate = matchSelector('[itemprop="commentCount"]')

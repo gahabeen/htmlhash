@@ -1,3 +1,3 @@
 import { anyOf, matchSelector } from '../matchers'
 
-export const predicate = anyOf([matchSelector('[rel]')])
+export const predicate = matchSelector('[rel]')

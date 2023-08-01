@@ -1,4 +1,4 @@
 import { anyOf } from '../matchers'
 import { matchSelector } from '../matchers'
 
-export const predicate = anyOf([matchSelector('[style*="font-size:"]')])
+export const predicate = matchSelector('[style*="font-size:"]')

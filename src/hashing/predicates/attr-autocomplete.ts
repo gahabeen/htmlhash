@@ -1,4 +1,3 @@
-import { anyOf } from '../matchers'
 import { matchSelector } from '../matchers'
 
-export const predicate = anyOf([matchSelector('[autocomplete]')])
+export const predicate = matchSelector('[autocomplete]')
