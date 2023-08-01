@@ -1,33 +1,45 @@
-import fs from 'fs';
-import path from 'path';
-import { differences, similarity, toBinary } from '../src/fingerprint';
-import { hash } from '../src/index';
+import fs from 'fs'
+import path from 'path'
+import { differences, similarity, toBinary } from '../src/fingerprint'
+import { hash } from '../src/index'
 
-// const html1 = fs.readFileSync(path.join(__dirname, '../dataset/unstorage-unjs-io.html'), 'utf8');
-// const html2 = fs.readFileSync(path.join(__dirname, '../dataset/hackernews-com.html'), 'utf8');
-
-const html1 = fs.readFileSync(path.join(__dirname, '../dataset/dokicloud-one.html'), 'utf8');
-// const html2 = fs.readFileSync(path.join(__dirname, '../dataset/rabbitstream-com.html'), 'utf8');
-const html2 = fs.readFileSync(path.join(__dirname, '../dataset/hackernews-com.html'), 'utf8');
+const htmls = [
+    // fs.readFileSync(path.join(__dirname, './dataset/unstorage-unjs-io.html'), 'utf8'),
+    // fs.readFileSync(path.join(__dirname, './dataset/ww9-soap2day-day.html'), 'utf8'),
+    // fs.readFileSync(path.join(__dirname, './dataset/mv-thesoap2day-com.html'), 'utf8'),
+    // fs.readFileSync(path.join(__dirname, "./dataset/google-com.html"), "utf8"),
+    fs.readFileSync(path.join(__dirname, './dataset/dokicloud-one.html'), 'utf8'),
+    // fs.readFileSync(path.join(__dirname, './dataset/rabbitstream-com.html'), 'utf8'),
+    // fs.readFileSync(path.join(__dirname, './dataset/twitter-com.html'), 'utf8'),
+    // fs.readFileSync(path.join(__dirname, './dataset/hackernews-com.html'), 'utf8'),
+    // fs.readFileSync(path.join(__dirname, './dataset/ww9-soap2day-day--the-matrix-soap2day.html'), 'utf8'),
+    // fs.readFileSync(path.join(__dirname, './dataset/mv-thesoap2day-com--movies--the-matrix.html'), 'utf8'),
+    fs.readFileSync(path.join(__dirname, './dataset/myflixerz.to--movie--the-matrix-19724.html'), 'utf8'),
+]
 
 const run = async () => {
-  console.time('fingerprint');
+    console.time('fingerprint 1')
 
-  const value1 = hash(html1, 'short');
-  const value2 = hash(html2, 'short');
+    const value1 = hash(htmls[0])
 
-  console.timeEnd('fingerprint');
+    console.timeEnd('fingerprint 1')
 
-  // const bin = toBinary(value);
+    console.time('fingerprint 2')
 
-  console.log(value1, value1.length, toBinary(value1).length);
-  console.log(value2, value2.length, toBinary(value2).length);
+    const value2 = hash(htmls[1])
 
-  // const score = similarity(value1, value2);
-  // const diff = differences(value1, value2);
+    console.timeEnd('fingerprint 2')
 
-  // console.log(score);
-  // console.log(diff);
+    // const bin = toBinary(value);
+
+    console.log(value1, value1.length)
+    console.log(value2, value2.length)
+
+    const score = similarity(value1, value2)
+    const diff = differences(value1, value2)
+
+    console.log(score)
+    console.log(diff)
 }
 
-run();
+run()

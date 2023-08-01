@@ -1,0 +1,21 @@
+import { anyOf, matchRegex, matchRegexInAttribute, matchRegexInInnerHTML, matchSelector } from '../matchers'
+
+export const predicate = anyOf([
+    // in attribute
+    matchRegexInAttribute('script', 'src', '\\.tinypass\\.com'),
+    matchRegexInAttribute('script', 'src', '\\.piano\\.io'),
+    // in dom
+
+    // in js
+    matchRegexInInnerHTML('script', 'PianoESPConfig'),
+    matchRegexInInnerHTML('script', 'gciDataPiano'),
+    // in meta
+
+    // in scripts
+
+    // in html
+
+    // in text
+
+    // in css
+])

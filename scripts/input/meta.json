@@ -1,0 +1,516 @@
+{
+    "og-description": {
+        "property": "og:description"
+    },
+    "og-image": {
+        "property": "og:image"
+    },
+    "og-audio-secure_url": {
+        "property": "og:audio:secure_url"
+    },
+    "og-audio-type": {
+        "property": "og:audio:type"
+    },
+    "og-audio": {
+        "property": "og:audio"
+    },
+    "og-determiner": {
+        "property": "og:determiner"
+    },
+    "og-image-alt": {
+        "property": "og:image:alt"
+    },
+    "og-image-height": {
+        "property": "og:image:height"
+    },
+    "og-image-secure_url": {
+        "property": "og:image:secure_url"
+    },
+    "og-image-type": {
+        "property": "og:image:type"
+    },
+    "og-image-width": {
+        "property": "og:image:width"
+    },
+    "og-image-url": {
+        "property": "og:image:url"
+    },
+    "og-locale": {
+        "property": "og:locale"
+    },
+    "og-locale-alternate": {
+        "property": "og:locale:alternate"
+    },
+    "og-site_name": {
+        "property": "og:site_name"
+    },
+    "og-title": {
+        "property": "og:title"
+    },
+    "og-type-article": {
+        "property": "og:type",
+        "content": "article"
+    },
+    "og-type-book": {
+        "property": "og:type",
+        "content": "book"
+    },
+    "og-type-profile": {
+        "property": "og:type",
+        "content": "profile"
+    },
+    "og-type-website": {
+        "property": "og:type",
+        "content": "website"
+    },
+    "og-type-music-song": {
+        "property": "og:type",
+        "content": "music.song"
+    },
+    "og-type-music-album": {
+        "property": "og:type",
+        "content": "music.album"
+    },
+    "og-type-music-playlist": {
+        "property": "og:type",
+        "content": "music.playlist"
+    },
+    "og-type-music-radio_station": {
+        "property": "og:type",
+        "content": "music.radio_station"
+    },
+    "og-type-video-movie": {
+        "property": "og:type",
+        "content": "video.movie"
+    },
+    "og-type-video-episode": {
+        "property": "og:type",
+        "content": "video.episode"
+    },
+    "og-type-video-tv_show": {
+        "property": "og:type",
+        "content": "video.tv_show"
+    },
+    "og-type-video-other": {
+        "property": "og:type",
+        "content": "video.other"
+    },
+    "og-type-article-published_time": {
+        "property": "og:type",
+        "content": "article.published_time"
+    },
+    "og-type-article-modified_time": {
+        "property": "og:type",
+        "content": "article.modified_time"
+    },
+    "og-type-article-expiration_time": {
+        "property": "og:type",
+        "content": "article.expiration_time"
+    },
+    "og-type-article-author": {
+        "property": "og:type",
+        "content": "article.author"
+    },
+    "og-type-article-section": {
+        "property": "og:type",
+        "content": "article.section"
+    },
+    "og-type-article-tag": {
+        "property": "og:type",
+        "content": "article.tag"
+    },
+    "og-type-book-author": {
+        "property": "og:type",
+        "content": "book.author"
+    },
+    "og-type-book-isbn": {
+        "property": "og:type",
+        "content": "book.isbn"
+    },
+    "og-type-book-release_date": {
+        "property": "og:type",
+        "content": "book.release_date"
+    },
+    "og-type-book-tag": {
+        "property": "og:type",
+        "content": "book.tag"
+    },
+    "og-type-profile-first_name": {
+        "property": "og:type",
+        "content": "profile.first_name"
+    },
+    "og-type-profile-last_name": {
+        "property": "og:type",
+        "content": "profile.last_name"
+    },
+    "og-type-profile-username": {
+        "property": "og:type",
+        "content": "profile.username"
+    },
+    "og-type-profile-gender": {
+        "property": "og:type",
+        "content": "profile.gender"
+    },
+    "robots-all": {
+        "property": "robots",
+        "content": "all"
+    },
+    "robots-none": {
+        "property": "robots",
+        "content": "none"
+    },
+    "robots-index": {
+        "property": "robots",
+        "content": "index"
+    },
+    "robots-noindex": {
+        "property": "robots",
+        "content": "noindex"
+    },
+    "robots-follow": {
+        "property": "robots",
+        "content": "follow"
+    },
+    "robots-nofollow": {
+        "property": "robots",
+        "content": "nofollow"
+    },
+    "robots-noarchive": {
+        "property": "robots",
+        "content": "noarchive"
+    },
+    "robots-nosnippet": {
+        "property": "robots",
+        "content": "nosnippet"
+    },
+    "robots-noimageindex": {
+        "property": "robots",
+        "content": "noimageindex"
+    },
+    "robots-notranslate": {
+        "property": "robots",
+        "content": "notranslate"
+    },
+    "robots-nocontent": {
+        "property": "robots",
+        "content": "nocontent"
+    },
+    "robots-nosyndication": {
+        "property": "robots",
+        "content": "nosyndication"
+    },
+    "robots-noydir": {
+        "property": "robots",
+        "content": "noydir"
+    },
+    "robots-noopd": {
+        "property": "robots",
+        "content": "noopd"
+    },
+    "robots": {
+        "property": "robots"
+    },
+    "profile-first_name": {
+        "property": "profile:first_name"
+    },
+    "profile-last_name": {
+        "property": "profile:last_name"
+    },
+    "profile-gender": {
+        "property": "profile:gender"
+    },
+    "profile-username": {
+        "property": "profile:username"
+    },
+    "twitter-card": {
+        "name": "twitter:card"
+    },
+    "twitter-site": {
+        "name": "twitter:site"
+    },
+    "twitter-site:id": {
+        "name": "twitter:site:id"
+    },
+    "twitter-creator": {
+        "name": "twitter:creator"
+    },
+    "twitter-creator:id": {
+        "name": "twitter:creator:id"
+    },
+    "twitter-description": {
+        "name": "twitter:description"
+    },
+    "twitter-title": {
+        "name": "twitter:title"
+    },
+    "twitter-domain": {
+        "name": "twitter:domain"
+    },
+    "twitter-image-alt": {
+        "name": "twitter:image:alt"
+    },
+    "twitter-image": {
+        "name": "twitter:image"
+    },
+    "twitter-image-src": {
+        "name": "twitter:image:src"
+    },
+    "twitter-image-width": {
+        "name": "twitter:image:width"
+    },
+    "twitter-image-height": {
+        "name": "twitter:image:height"
+    },
+    "twitter-player": {
+        "name": "twitter:player"
+    },
+    "twitter-player-width": {
+        "name": "twitter:player:width"
+    },
+    "twitter-player-height": {
+        "name": "twitter:player:height"
+    },
+    "twitter-player-stream": {
+        "name": "twitter:player:stream"
+    },
+    "twitter-player-stream-content_type": {
+        "name": "twitter:player:stream:content_type"
+    },
+    "twitter-app-name-iphone": {
+        "name": "twitter:app:name:iphone"
+    },
+    "twitter-app-id-iphone": {
+        "name": "twitter:app:id:iphone"
+    },
+    "twitter-app-url-iphone": {
+        "name": "twitter:app:url:iphone"
+    },
+    "twitter-app-name-ipad": {
+        "name": "twitter:app:name:ipad"
+    },
+    "twitter-app-id-ipad": {
+        "name": "twitter:app:id:ipad"
+    },
+    "twitter-app-url-ipad": {
+        "name": "twitter:app:url:ipad"
+    },
+    "twitter-app-name-googleplay": {
+        "name": "twitter:app:name:googleplay"
+    },
+    "twitter-app-id-googleplay": {
+        "name": "twitter:app:id:googleplay"
+    },
+    "twitter-app-url-googleplay": {
+        "name": "twitter:app:url:googleplay"
+    },
+    "twitter-app-country": {
+        "name": "twitter:app:country"
+    },
+    "video-duration": {
+        "property": "video:duration"
+    },
+    "video-release_date": {
+        "property": "video:release_date"
+    },
+    "video-tag": {
+        "property": "video:tag"
+    },
+    "video-actor-role": {
+        "property": "video:actor:role"
+    },
+    "video-director": {
+        "property": "video:director"
+    },
+    "video-series": {
+        "property": "video:series"
+    },
+    "video-writer": {
+        "property": "video:writer"
+    },
+    "video-actor": {
+        "property": "video:actor"
+    },
+    "viewport": {
+        "name": "viewport"
+    },
+    "website": {
+        "name": "website"
+    },
+    "charset-iso-8859-1": {
+        "charset": "iso-8859-1"
+    },
+    "charset-iso-8859-2": {
+        "charset": "iso-8859-2"
+    },
+    "charset-iso-8859-3": {
+        "charset": "iso-8859-3"
+    },
+    "charset-iso-8859-4": {
+        "charset": "iso-8859-4"
+    },
+    "charset-iso-8859-5": {
+        "charset": "iso-8859-5"
+    },
+    "charset-iso-8859-6": {
+        "charset": "iso-8859-6"
+    },
+    "charset-iso-8859-7": {
+        "charset": "iso-8859-7"
+    },
+    "charset-iso-8859-8": {
+        "charset": "iso-8859-8"
+    },
+    "charset-iso-8859-9": {
+        "charset": "iso-8859-9"
+    },
+    "charset-iso-8859-10": {
+        "charset": "iso-8859-10"
+    },
+    "charset-iso-8859-11": {
+        "charset": "iso-8859-11"
+    },
+    "charset-iso-8859-13": {
+        "charset": "iso-8859-13"
+    },
+    "charset-iso-8859-14": {
+        "charset": "iso-8859-14"
+    },
+    "charset-iso-8859-15": {
+        "charset": "iso-8859-15"
+    },
+    "charset-utf-8": {
+        "charset": "utf-8"
+    },
+    "charset-iso-8859-1-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-1"
+    },
+    "charset-iso-8859-2-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-2"
+    },
+    "charset-iso-8859-3-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-3"
+    },
+    "charset-iso-8859-4-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-4"
+    },
+    "charset-iso-8859-5-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-5"
+    },
+    "charset-iso-8859-6-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-6"
+    },
+    "charset-iso-8859-7-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-7"
+    },
+    "charset-iso-8859-8-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-8"
+    },
+    "charset-iso-8859-9-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-9"
+    },
+    "charset-iso-8859-10-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-10"
+    },
+    "charset-iso-8859-11-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-11"
+    },
+    "charset-iso-8859-13-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-13"
+    },
+    "charset-iso-8859-14-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-14"
+    },
+    "charset-iso-8859-15-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=iso-8859-15"
+    },
+    "charset-utf-8-old": {
+        "http-equiv": "Content-Type",
+        "content": "charset=utf-8"
+    },
+    "description": {
+        "name": "description"
+    },
+    "fb-app_id": {
+        "property": "fb:app_id"
+    },
+    "fb-profile_id": {
+        "property": "fb:profile_id"
+    },
+    "music-album": {
+        "property": "music:album"
+    },
+    "music-album-disc": {
+        "property": "music:album:disc"
+    },
+    "music-album-track": {
+        "property": "music:album:track"
+    },
+    "music-creator": {
+        "property": "music:creator"
+    },
+    "music-duration": {
+        "property": "music:duration"
+    },
+    "music-musician": {
+        "property": "music:musician"
+    },
+    "music-release_date": {
+        "property": "music:release_date"
+    },
+    "music-song": {
+        "property": "music:song"
+    },
+    "music-song-disc": {
+        "property": "music:song:disc"
+    },
+    "music-song-track": {
+        "property": "music:song:track"
+    },
+    "book-author": {
+        "property": "book:author"
+    },
+    "book-isbn": {
+        "property": "book:isbn"
+    },
+    "book-release_date": {
+        "property": "book:release_date"
+    },
+    "book-tag": {
+        "property": "book:tag"
+    },
+    "article-author": {
+        "property": "article:author"
+    },
+    "article-publisher": {
+        "property": "article:publisher"
+    },
+    "article-published_time": {
+        "property": "article:published_time"
+    },
+    "article-modified_time": {
+        "property": "article:modified_time"
+    },
+    "article-expires_time": {
+        "property": "article:expires_time"
+    },
+    "article-section": {
+        "property": "article:section"
+    },
+    "article-tag": {
+        "property": "article:tag"
+    }
+}

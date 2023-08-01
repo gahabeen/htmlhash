@@ -1,1 +1,1 @@
-export { hash, toBinary, toHex } from './fingerprint';
+export { hash, toBinary, toHex, differences, similarity } from './fingerprint'

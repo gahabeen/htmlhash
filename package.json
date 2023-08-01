@@ -1,22 +1,22 @@
 {
-	"name": "htmlhash",
-	"main": "dist/index.js",
-	"module": "dist/index.m.js",
-	"unpkg": "dist/index.umd.js",
-	"types": "dist/index.d.ts",
-	"scripts": {
-		"sync": "bun scripts/cli-sync.ts",
-		"build": "rm -rf dist && microbundle --tsconfig tsconfig.json --no-sourcemap"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"@types/node": "^20.4.5",
-		"microbundle": "^0.15.1"
-	},
-	"dependencies": {
-		"xstate": "beta",
-		"zod": "^3.21.4"
-	}
+    "name": "htmlhash",
+    "main": "lib/index.js",
+    "scripts": {
+        "sync": "bun scripts/cli-sync.ts",
+        "build": "bun build ./src/index.ts --outdir ./lib --target node",
+        "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^20.4.5",
+        "bun": "^0.7.1",
+        "bun-types": "^0.7.1",
+        "microbundle": "^0.15.1",
+        "prettier": "^3.0.0"
+    },
+    "dependencies": {
+        "node-html-parser": "^6.1.5"
+    }
 }
