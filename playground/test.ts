@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { differences, similarity, toBinary } from '../src/fingerprint'
+import { compare, difference, similarity, toBinary } from '../src/fingerprint'
 import { hash } from '../src/index'
 
 const htmls = [
@@ -32,14 +32,15 @@ const run = async () => {
 
     // const bin = toBinary(value);
 
-    // console.log(value1, value1.length)
+    console.log(value1, value1.length)
     // console.log(value2, value2.length)
 
-    const score = similarity(value1, value2)
-    const diff = differences(value1, value2)
+    // one liner to make an array of 255 0.5s
 
-    console.log(score, diff.length)
-    console.log(diff)
+    const score = similarity(value1, value2, Array.from({ length: 4660 }, () => Math.random()))
+    const { difference } = compare(value1, value2)
+
+    console.log(score, difference.length)
 }
 
 run()

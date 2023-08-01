@@ -1,4 +1,5 @@
 import { COMPRESS_CHAR_AS_MULTIPLIERS } from './consts'
+import { HashHex, HashShortHex } from './types'
 
 export const escapeRegExpValue = function (value: string) {
     return value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
@@ -23,7 +24,7 @@ export const hexToBinary = (hex: string) => {
 }
 
 // compress duplicated characters to short
-export const compressHex = (hex: string): string => {
+export const compressHex = (hex: HashHex): HashShortHex => {
     let previousChar = hex[0]
     let charCount = 1
     let compressed = ''
@@ -59,7 +60,7 @@ export const compressHex = (hex: string): string => {
     return compressed
 }
 
-export const decompressHex = (hex: string): string => {
+export const decompressHex = (hex: HashShortHex): HashHex => {
     let decompressed = ''
     let previousWasMultiplier = false
 
@@ -96,13 +97,27 @@ export function cosineSimilarity(a: number[], b: number[]): number {
     return dotProd / (magnitudeA * magnitudeB)
 }
 
-export const hammingDistanceScore = (vectorA = [] as number[], vectorB = [] as number[]) => {
+// export const hammingDistanceScore = (vectorA = [] as number[], vectorB = [] as number[]) => {
+//     const dimensionality = Math.min(vectorA.length, vectorB.length)
+//     let score = 0
+
+//     for (let i = 0; i < dimensionality; i++) {
+//         if (vectorA[i] === vectorB[i]) score++
+//     }
+
+//     return score / dimensionality
+// }
+
+export const hammingDistanceScore = (vectorA = [] as number[], vectorB = [] as number[], weights = [] as number[]) => {
     const dimensionality = Math.min(vectorA.length, vectorB.length)
     let score = 0
+    let totalWeight = 0;
 
     for (let i = 0; i < dimensionality; i++) {
-        if (vectorA[i] === vectorB[i]) score++
+        const digitWeight = weights[i] || 1;
+        if (vectorA[i] === vectorB[i]) score += digitWeight;
+        totalWeight += digitWeight;
     }
 
-    return score / dimensionality
+    return score / totalWeight;
 }

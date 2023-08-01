@@ -23,7 +23,7 @@ const syncPredicates = () => {
 
     if (hasNewImports) {
         console.log(`Added ${newPredicatesCount} new predicates. Total predicates: ${currentPredicatesCount + newPredicatesCount}`)
-        fs.writeFileSync(path.join(__dirname, '../src/hashing/digits.ts'), digits.replace('];', nextImportsToInsert + '\n];'))
+        fs.writeFileSync(path.join(__dirname, '../src/hashing/digits.ts'), digits.replace(']', nextImportsToInsert + '\n]'))
     } else {
         console.log(`No new predicates. Total predicates: ${currentPredicatesCount}`)
     }
