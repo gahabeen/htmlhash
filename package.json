@@ -1,24 +1,25 @@
 {
-    "name": "htmlhash",
-    "version": "0.0.1-alpha.1",
-    "main": "lib/index.js",
-    "scripts": {
-        "example": "bun playground/example.ts",
-        "sync": "bun scripts/cli-sync.ts",
-        "build": "bun build ./src/index.ts --outdir ./lib --target node",
-        "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\" --config ./.prettierrc.json"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@types/node": "^20.4.5",
-        "bun": "^0.7.1",
-        "bun-types": "^0.7.1",
-        "microbundle": "^0.15.1",
-        "prettier": "^3.0.0"
-    },
-    "dependencies": {
-        "node-html-parser": "^6.1.5"
-    }
+  "name": "htmlhash",
+  "version": "0.0.1-alpha.1",
+  "main": "lib/index.js",
+  "scripts": {
+    "example": "bun playground/example.ts",
+    "sync": "bun scripts/cli-sync.ts",
+    "build": "bun build ./src/index.ts --outdir ./lib --target node",
+    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\" --config ./.prettierrc.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "@types/skmeans": "^0.11.4",
+    "bun": "^0.7.1",
+    "bun-types": "^0.7.1",
+    "microbundle": "^0.15.1",
+    "prettier": "^3.0.0"
+  },
+  "dependencies": {
+    "node-html-parser": "^6.1.5"
+  }
 }

@@ -1,11 +1,19 @@
 # `htmlhash`
 
-Calculate the hash value of HTML files and compare them for similarity.
+Create a hash value of a HTML file to use it for comparisons.
 Hash is based on the HTML structure and technologies, not the content.
 
 ```md
-> This is fully experimental and still subject to have breaking changes until stable release.
+> This is experimental subject to change until a stable version is released.
 ```
+
+
+## Use cases
+
+1. **Compare or group HTML files to find similarities** (ex: to find similar pages of a website, find similar pages of different websites, find similar websites)
+2. **Compare if a HTML file is the same as a previous version**
+ex: to periodically check if a website has changed
+3. **Create reverse search engine to find domains by HTML hashes**
 
 ## Prerequisites
 
@@ -44,26 +52,29 @@ console.log('dif', hh.differences(hash1, hash2)) // [ "tag-h2", "tag-h1" ]
 
 All predicates are considered equal. Also, for clarity they've been grouped by the following prefixes:
 
--   `tag`: the tag name
--   `meta`: the meta related attributes
--   `attr`: the attribute name
--   `attr-id`: the id
--   `attr-class`: the classes
--   `attr-itemprop`: the itemprop attributes
--   `js`: the javascript code snippets
--   `css`: the css code snippets
--   `tech`: the detected technologies (originally based on Wappalyzer)
+- `tag-`: tags
+  * `tag-meta-`: meta related attributes
+  * `tag-link-`: link related attributes
+  * `tag-a-`: a related attributes
+  * `tag-html-lang-`: html lang attributes
+  * `tag-<tag>-in-<tag>`: <tag1> in another <tag2> as in [tag1] > [tag2]
+- `attr-`: attribute name
+  * `attr-id-`: id
+  * `attr-class-`: classes
+  * `attr-style-`: inline-styles attributes
+  * `attr-role-`: [role](https://www.w3.org/TR/wai-aria-1.1/#role_definitions) attributes
+  * `attr-itemprop-`: [itemprop](https://www.w3.org/TR/microdata/#names:-the-itemprop-attribute) attributes
+- `js-`: javascript code snippets
+  * `js-array`: some array related accessors/methods
+  * `js-object`: some object related accessors/methods
+  * `js-document`: some document related accessors/methods
+
+- `css-`: css code snippets
+- `tech-`: detected technologies (originally based on Wappalyzer)
 
 Think of them as a way to organize the predicates in a trackable way (and avoid duplicates).
 
 Have ideas for more predicates? Please create an issue on the GitHub repository.
-
-## Remaining before stable
-
-1. Review all technologies (a lot of them are missing or should be simplified)
-2. Set up tests suite
-3. Add more verticals
-4. Add more predicates
 
 ## License
 

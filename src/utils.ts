@@ -1,5 +1,9 @@
-import { COMPRESS_CHAR_AS_MULTIPLIERS } from './consts'
-import { HashHex, HashShortHex } from './types'
+import { COMPRESS_CHAR_AS_MULTIPLIERS, HEX_CHARACTERS } from './consts'
+import { AnyHash, Hash, HashBinaryArray, HashHex, HashShortHex } from './types'
+
+export const getDimensionality = (hashes: any[]): number => {
+    return Math.min(...hashes.map((hash) => hash.length))
+}
 
 export const escapeRegExpValue = function (value: string) {
     return value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
@@ -97,6 +101,62 @@ export function cosineSimilarity(a: number[], b: number[]): number {
     return dotProd / (magnitudeA * magnitudeB)
 }
 
+export const hammingDistance = (a: number[], b: number[]) => {
+    let distance = 0;
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) {
+            distance++;
+        }
+    }
+    return distance;
+}
+
+export const log = (value: number) => {
+    return Math.log2(value + 1)
+};
+
+
+export const isCompressedHex = (hash: AnyHash) => {
+    if (typeof hash !== 'string') return false
+    return Array.from(hash).some((char) => COMPRESS_CHAR_AS_MULTIPLIERS.includes(char))
+}
+
+export const isHex = (hash: AnyHash) => {
+    if (typeof hash !== 'string') return false
+    return Array.from(hash).every((char) => HEX_CHARACTERS.includes(char))
+}
+
+export const isBinaryString = (hash: AnyHash) => {
+    if (typeof hash !== 'string') return false
+    return Array.from(hash).every((char) => ['0', '1'].includes(char))
+}
+
+export const isBinaryArray = (hash: AnyHash) => {
+    if (!Array.isArray(hash)) return false
+    return hash.every((char) => [0, 1].includes(char))
+}
+
+export const toBinary = (hash: AnyHash): Hash => {
+    if (isBinaryString(hash)) return hash as Hash;
+    const hex = isCompressedHex(hash) ? decompressHex(hash as HashShortHex) : hash
+    const bin = hexToBinary(hex as HashHex)
+    return bin
+}
+
+export const toHex = (hash: AnyHash): HashHex => {
+    const isCompressed = isCompressedHex(hash)
+    const isBin = isBinaryString(hash)
+
+    if (!isCompressed && !isBin) throw new Error(`No conversion available for ${hash}`)
+    return isCompressed ? decompressHex(hash as HashShortHex) : binaryToHex(hash as Hash)
+}
+
+export const toBinaryArray = (hash: AnyHash): HashBinaryArray => {
+    if (isBinaryArray(hash)) return hash as HashBinaryArray;
+    const bin = toBinary(hash);
+    return Array.from(bin).map((char) => +(char)) as HashBinaryArray;
+}
+
 // export const hammingDistanceScore = (vectorA = [] as number[], vectorB = [] as number[]) => {
 //     const dimensionality = Math.min(vectorA.length, vectorB.length)
 //     let score = 0
@@ -107,17 +167,3 @@ export function cosineSimilarity(a: number[], b: number[]): number {
 
 //     return score / dimensionality
 // }
-
-export const hammingDistanceScore = (vectorA = [] as number[], vectorB = [] as number[], weights = [] as number[]) => {
-    const dimensionality = Math.min(vectorA.length, vectorB.length)
-    let score = 0
-    let totalWeight = 0;
-
-    for (let i = 0; i < dimensionality; i++) {
-        const digitWeight = weights[i] || 1;
-        if (vectorA[i] === vectorB[i]) score += digitWeight;
-        totalWeight += digitWeight;
-    }
-
-    return score / totalWeight;
-}
