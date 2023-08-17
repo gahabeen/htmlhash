@@ -1,4 +1,4 @@
-export class FeaturesDictionnary {
+export class FeaturesDictionary {
   _keys: Set<string>;
   _mappedKeys: string[];
 
@@ -16,7 +16,7 @@ export class FeaturesDictionnary {
   setMappedKeys(keys: string[]) {
     if (!keys.every((key) => this._keys.has(key))) {
       // console.log(keys.filter((key) => !this._keys.has(key)));
-      throw new Error(`Some keys are not in dictionnary`);
+      throw new Error(`Some keys are not in dictionary`);
     }
     this._mappedKeys = keys;
   }

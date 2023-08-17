@@ -1,19 +1,15 @@
 import { HTMLElement } from '../../parse/html';
-import { FeaturesDictionnary } from './features-dictionnary';
+import { HTMLHash } from './html-hash';
 
 export class HTMLHasher {
-  dictionnary!: FeaturesDictionnary;
-  values!: Map<string, number>;
+  hash!: HTMLHash;
 
   constructor() {
     this.reset();
   }
 
   reset() {
-  }
-
-  compute() {
-    // Compute the values if not already done
+    // Reset the instance to be reused (for memory efficiency)
   }
 
   childHandler(_child: HTMLElement) {
@@ -24,11 +20,17 @@ export class HTMLHasher {
     // Handle a parent element
   }
 
-  hash() {
-    this.compute();
-    if (!(this.values instanceof Map)) throw new Error('Values not computed');
-    if (!(this.dictionnary instanceof FeaturesDictionnary)) throw new Error('Dictionnary is not defined');
-
-    return this.dictionnary.keys().map((key: any) => (this.values as Map<string, number>).get(key) || 0);
+  compute(): HTMLHash {
+    // Compute the values if not already done
+    return this.hash
   }
+
+  // hash() {
+  //   return this._hash;
+
+  //   if (!(this.values instanceof Map)) throw new Error('Values not computed');
+  //   if (!(this.dictionary instanceof FeaturesDictionary)) throw new Error('Dictionary is not defined');
+
+  //   return this.dictionary.keys().map((key: any) => (this.values as Map<string, number>).get(key) || 0);
+  // }
 }

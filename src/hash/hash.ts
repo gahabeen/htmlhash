@@ -5,7 +5,7 @@ import { HTMLCompositionHasher } from './hashers/html-composition-hasher';
 
 export const hash = (html: string, hasher: HTMLHasher = new HTMLCompositionHasher()) => {
     traverse(html, hasher);
-    return hasher.hash();
+    return hasher.compute();
 }
 
 export const averageHash = (hashes: HashVector[]) => {

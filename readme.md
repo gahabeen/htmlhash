@@ -41,7 +41,7 @@ import { HTMLReferencesHasher } from 'htmlhash';
 const hasher = new HTMLReferencesHasher();
 ```
 
-### C. **Text Hasher**
+### C. **Texts Hasher**
 
 Hashes the HTML by the text content.
 

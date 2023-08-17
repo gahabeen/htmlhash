@@ -2,7 +2,8 @@ import * as datasets from '../../datasets';
 import { HTMLElement } from '../../parse/html';
 import { Attribute, Count, Index, Tag } from '../../types';
 import { averageValue } from '../../utils';
-import { FeaturesDictionnary } from '../generics/features-dictionnary';
+import { FeaturesDictionary } from '../generics/features-dictionary';
+import { HTMLHash } from '../generics/html-hash';
 import { HTMLHasher } from '../generics/html-hasher';
 
 export const features = {
@@ -120,7 +121,7 @@ export const features = {
   },
 }
 
-export class HTMLCompositionFeaturesDictionnary extends FeaturesDictionnary {
+export class HTMLCompositionFeaturesDictionary extends FeaturesDictionary {
 
   constructor({ attributes, tags }: { attributes: string[], tags: string[] } = { attributes: datasets.attributes, tags: datasets.tags }) {
     super();
@@ -163,16 +164,14 @@ export class HTMLCompositionHasher extends HTMLHasher {
   counters!: Map<string, Count>;
   indexes!: Map<string, Index[]>;
 
-  dictionnary: FeaturesDictionnary
-
-  constructor(dictionnary: HTMLCompositionFeaturesDictionnary = new HTMLCompositionFeaturesDictionnary()) {
+  constructor(dictionary: HTMLCompositionFeaturesDictionary = new HTMLCompositionFeaturesDictionary()) {
     super();
-    this.reset();
-    this.dictionnary = dictionnary;
+    this.reset(dictionary);
   }
 
-  reset() {
-    this.values = new Map<string, number>();
+  reset(dictionary?: HTMLCompositionFeaturesDictionary) {
+
+    this.hash = new HTMLHash({ dictionary: dictionary || this.hash?.dictionary });
 
     this.contextCounters = {
       tags: 0,
@@ -290,17 +289,17 @@ export class HTMLCompositionHasher extends HTMLHasher {
   };
 
   compute() {
-    if (this.values?.size) return this.values;
+    if (this.hash?.values?.size) return this.hash;
 
     for (const [key, value] of this.indexes) {
       if ([
         features.avgOfTag.prefix,
       ].some(prefix => key.startsWith(prefix))) {
         // value as indexes
-        this.values.set(key, value.length / this.contextCounters.tags)
+        this.hash.values.set(key, value.length / this.contextCounters.tags)
         const { tag } = features.distributionOfTag.parse(key);
         if (tag) {
-          this.values.set(features.distributionOfTag.name({ tag }), averageValue(value) / this.contextCounters.tags)
+          this.hash.values.set(features.distributionOfTag.name({ tag }), averageValue(value) / this.contextCounters.tags)
         }
         continue;
       }
@@ -309,10 +308,10 @@ export class HTMLCompositionHasher extends HTMLHasher {
         features.avgOfAttribute.prefix,
       ].some(prefix => key.startsWith(prefix))) {
         // value as indexes
-        this.values.set(key, value.length / this.contextCounters.attributes)
+        this.hash.values.set(key, value.length / this.contextCounters.attributes)
         const { attribute } = features.distributionOfAttribute.parse(key);
         if (attribute) {
-          this.values.set(features.distributionOfAttribute.name({ attribute }), averageValue(value) / this.contextCounters.tags)
+          this.hash.values.set(features.distributionOfAttribute.name({ attribute }), averageValue(value) / this.contextCounters.tags)
         }
         continue;
       }
@@ -324,7 +323,7 @@ export class HTMLCompositionHasher extends HTMLHasher {
         features.avgOfTagsWithData.prefix,
       ].some(prefix => key.startsWith(prefix))) {
         // value as indexes
-        this.values.set(key, value.length / this.contextCounters.tags)
+        this.hash.values.set(key, value.length / this.contextCounters.tags)
         continue;
       }
 
@@ -332,9 +331,9 @@ export class HTMLCompositionHasher extends HTMLHasher {
         features.avgOfTagParentOfTag.prefix,
       ].some(prefix => key.startsWith(prefix))) {
         // value as indexes
-        this.values.set(key, value.length / this.contextCounters.parentChildRelations)
+        this.hash.values.set(key, value.length / this.contextCounters.parentChildRelations)
         const { tag, parentTag } = features.distributionOfTagParentOfTag.parse(key);
-        this.values.set(features.distributionOfTagParentOfTag.name({ parentTag, tag }), averageValue(value) / this.contextCounters.tags);
+        this.hash.values.set(features.distributionOfTagParentOfTag.name({ parentTag, tag }), averageValue(value) / this.contextCounters.tags);
         continue;
       }
 
@@ -342,9 +341,9 @@ export class HTMLCompositionHasher extends HTMLHasher {
         features.avgOfTagDirectParentOfTag.prefix,
       ].some(prefix => key.startsWith(prefix))) {
         // value as indexes
-        this.values.set(key, value.length / this.contextCounters.directParentChildRelations)
+        this.hash.values.set(key, value.length / this.contextCounters.directParentChildRelations)
         const { tag, parentTag } = features.distributionOfTagDirectParentOfTag.parse(key);
-        this.values.set(features.distributionOfTagDirectParentOfTag.name({ parentTag, tag }), averageValue(value) / this.contextCounters.tags);
+        this.hash.values.set(features.distributionOfTagDirectParentOfTag.name({ parentTag, tag }), averageValue(value) / this.contextCounters.tags);
         continue;
       }
 
@@ -352,9 +351,9 @@ export class HTMLCompositionHasher extends HTMLHasher {
         features.avgOfTagSiblingOfTag.prefix,
       ].some(prefix => key.startsWith(prefix))) {
         // value as indexes
-        this.values.set(key, value.length / this.contextCounters.siblingsRelations)
+        this.hash.values.set(key, value.length / this.contextCounters.siblingsRelations)
         const { tag, siblingTag } = features.distributionOfTagSiblingOfTag.parse(key);
-        this.values.set(features.distributionOfTagSiblingOfTag.name({ siblingTag, tag }), averageValue(value) / this.contextCounters.tags);
+        this.hash.values.set(features.distributionOfTagSiblingOfTag.name({ siblingTag, tag }), averageValue(value) / this.contextCounters.tags);
         continue;
       }
     }
@@ -367,7 +366,7 @@ export class HTMLCompositionHasher extends HTMLHasher {
         const { tag } = features.avgOfTag.parse(key);
         if (tag) {
           const specificTagCount = this.indexes.get(features.avgOfTag.name({ tag }))?.length || 1;
-          this.values.set(key, (count / specificTagCount) / this.contextCounters.maxParents)
+          this.hash.values.set(key, (count / specificTagCount) / this.contextCounters.maxParents)
         }
         continue;
       }
@@ -380,7 +379,7 @@ export class HTMLCompositionHasher extends HTMLHasher {
         const { tag } = features.avgOfTag.parse(key);
         if (tag) {
           const specificTagCount = this.indexes.get(features.avgOfTag.name({ tag }))?.length || 1;
-          this.values.set(key, (count / specificTagCount) / this.contextCounters.maxAttributes);
+          this.hash.values.set(key, (count / specificTagCount) / this.contextCounters.maxAttributes);
         };
         continue;
       }
@@ -392,7 +391,7 @@ export class HTMLCompositionHasher extends HTMLHasher {
         const { tag } = features.avgOfTag.parse(key);
         if (tag) {
           const specificTagCount = this.indexes.get(features.avgOfTag.name({ tag }))?.length || 1;
-          this.values.set(key, (count / specificTagCount) / this.contextCounters.maxSiblings);
+          this.hash.values.set(key, (count / specificTagCount) / this.contextCounters.maxSiblings);
         };
         continue;
       }
@@ -401,16 +400,16 @@ export class HTMLCompositionHasher extends HTMLHasher {
         features.avgOfSameSiblingsPerTag.prefix,
       ].some(prefix => key.startsWith(prefix))) {
         // value as count number
-        this.values.set(key, (count / this.contextCounters.children));
+        this.hash.values.set(key, (count / this.contextCounters.children));
         continue;
       }
 
     }
 
     for (const [attribute, positions] of this.positionRatioOfAttributes) {
-      this.values.set(features.avgPositionOfAttribute.name({ attribute }), averageValue(positions));
+      this.hash.values.set(features.avgPositionOfAttribute.name({ attribute }), averageValue(positions));
     }
 
-    return this.values;
+    return this.hash;
   }
 }

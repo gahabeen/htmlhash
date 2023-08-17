@@ -11,3 +11,4 @@ export const inferFrequencies = (hashes: HashVector[]): HashVector => {
   }
   return weights;
 };
+
