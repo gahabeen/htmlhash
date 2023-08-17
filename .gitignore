@@ -23,8 +23,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-experiments
-corpus
-playground
-_playground
